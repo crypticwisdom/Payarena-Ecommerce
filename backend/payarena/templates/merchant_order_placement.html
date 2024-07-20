@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,300;0,400;0,500;1,300&family=Roboto:ital,wght@0,100;0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
+    <title>payarena</title>
+    <style>
+      * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: karla, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.logo {
+  height: 40px;
+  margin: 40px;
+}
+.order {
+  border-radius: 4px;
+  height: 60px;
+  background: #00b3fe;
+  margin: 0 20px;
+  color: white;
+  text-align: center;
+  padding: 16px 0;
+  margin-bottom: 30px;
+}
+
+li,
+strong {
+  line-height: 35px;
+}
+
+.message {
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.order-details {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.order-breakdown {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+span {
+  color: coral;
+  text-decoration: underline;
+}
+
+.break {
+  display: flex;
+  flex-direction: row;
+  gap: 35px;
+  margin-bottom: 30px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.help {
+  margin: 20px;
+}
+
+.regards {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+hr {
+  margin: 0 20px;
+  border: 0.5px dotted;
+}
+
+@media (max-width: 400px) {
+  .order {
+    font-size: 12px;
+    width: 280px;
+    height: 50px;
+    margin-left: 10px;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <img class="logo" src="http://payarenamall.tm-dev.xyz/static/payarena_logo.jpeg" alt="" />
+    </header>
+
+    <main>
+      <section class="order">
+        <h1>New Order: #{{ order_id }}</h1>
+      </section>
+      <section class="message">
+        <p>Dear Merchant,</p>
+        <br />
+        <p>
+          You just received a new order from {{ name }}. Below are the details
+          to this order.
+        </p>
+      </section>
+      <hr />
+      <section class="order-details">
+        <ul class="order-breakdown">
+          <span>ORDER DETAILS</span>
+          <div class="break">
+            <div class="list">
+              <strong>Order id:</strong>
+              <strong> Product Name:</strong>
+              <strong>Quantity:</strong>
+              <strong>Price:</strong>
+              <strong>Vendor:</strong>
+              <strong> Subtotal:</strong>
+              <strong> Shipping:</strong>
+              <strong>Payment Method:</strong>
+              <strong> Total:</strong>
+            </div>
+            <div>
+              <li>#{{ order_id }}</li>
+              <li>{{ product_name }}</li>
+              <li>{{ quantity }}</li>
+              <li>{{ price }}</li>
+              <li>{{ seller }}</li>
+              <li>{{ sub_total }}</li>
+              <li>{{ shipping_fee }}</li>
+              <li>{{ payment_method}}</li>
+              <li>{{ total }}</li>
+            </div>
+          </div>
+
+          <span>CUSTOMER DETAILS</span>
+          <div class="break">
+            <div class="list">
+            <strong>Customer Name: </strong>
+            <strong>Phone Number:</strong>
+            <strong>Email Address: </strong>
+            <strong> Billing Address: </strong>
+            <strong> Shipping Address: </strong>
+            </div>
+            <div>
+              <li>{{ name }}</li>
+              <li>{{ phone_no }}</li>
+              <li>{{ email }}</li>
+              <li>{{ address }}</li>
+              <li>{{ address }}</li>
+            </div>
+          </div>
+        </ul></div>
+      </section>
+
+      <hr />
+
+      <section >
+        <p class="help">
+          For Further assistance with your order, please contact us at
+          help@payarenamal.com <br /><br />
+          if you need further assistance, please, contact us by email at <br />
+          help@payarenaemail.com or call 070xxxxxx or 080xxxxxx
+        </p>
+
+        <hr />
+
+        <p class="regards">
+          Best Regards <br /><br />
+
+          The PayArena Team.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

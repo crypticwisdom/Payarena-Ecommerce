@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Email</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Karla", sans-serif;
+}
+.content {
+  width: 100%;
+}
+.header {
+  width: 100%;
+  height: 50vh;
+  background: linear-gradient(60deg, #4dcaf6, #00b3fe);
+  padding: 0 30px;
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+.logo-container {
+  width: 100%;
+}
+
+.logo img {
+  height: 50px;
+}
+.image {
+  margin-bottom: -0.38em;
+}
+.image img {
+  height: 250px;
+}
+.body {
+  padding: 30px;
+}
+.letter-heading {
+  margin-top: 20px;
+}
+.letter-heading span {
+  font-weight: bold;
+}
+
+.order-btn {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+.order-btn a {
+  font-size: 12px;
+  color: white;
+  background: #ff993a;
+  padding: 10px 40px;
+  border: none;
+  border-radius: 5px;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.letter-footer {
+  margin-top: 50px;
+}
+
+@media screen and (max-width: 1140px) {
+  .image img {
+    height: 220px;
+  }
+}
+@media screen and (max-width: 920px) {
+  .image img {
+    height: 190px;
+  }
+  .letter-heading {
+    width: 100%;
+    margin: auto;
+  }
+}
+@media screen and (max-width: 780px) {
+  .logo img {
+    height: 30px;
+  }
+  .image img {
+    height: 150px;
+  }
+}
+@media screen and (max-width: 719px) {
+  .logo img {
+    height: 30px;
+  }
+  .image img {
+    height: 150px;
+  }
+}
+@media screen and (max-width: 643px) {
+  .logo img {
+    height: 30px;
+  }
+  .image img {
+    height: 120px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .logo img {
+    height: 30px;
+  }
+  .header {
+    height: 40vh;
+  }
+  .image img {
+    height: 100px;
+  }
+}
+
+    </style>
+</head>
+
+<body>
+    <main class="content">
+        <section class="header">
+            <div class="logo-container">
+            {% if name == "Hope Marketplace" %}
+                <a href="https://mall.payarena.com" target="_blank" class="logo"><img src="https://apimall.payarena.com/static/hope_logo.jpeg" alt="logo"></a>
+            {% else %}
+                <a href="https://mall.payarena.com" target="_blank" class="logo"><img src="https://apimall.payarena.com/static/payarena_logo.jpeg" alt="logo"></a>
+            {% endif %}
+            </div>
+{#            <div class="image"><img src="/Images/Group 1000004955.svg" alt=""></div>#}
+        </section>
+        <section class="body">
+            {{ message|safe }}
+                <div class="letter-footer">
+                    <p>Best Regards, <br><br>
+                        The {{ name| safe }} Team</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

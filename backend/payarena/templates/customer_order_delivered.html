@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Delivered</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Karla", sans-serif;
+  padding: 0 20px;
+}
+main {
+  margin-bottom: 30px;
+}
+.navigation {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.navigation img {
+  height: 40px;
+}
+.navigation a {
+  color: #ff993a;
+  font-weight: 500;
+}
+.delivery-container {
+  width: 100%;
+  height: 80px;
+}
+.delivery-info {
+  background: #00b3fe;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.delivery-info p {
+  letter-spacing: 1.3px;
+  font-weight: 600;
+  color: white;
+}
+.merchant-letter {
+  margin: 40px 0;
+}
+.letter-header {
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.merchant-letter .letter-body {
+  letter-spacing: 1.2px;
+  width: 60%;
+}
+.letter-body span {
+  font-weight: bold;
+}
+
+.product-info {
+  width: 100%;
+  display: flex;
+  border-top: 2px dashed grey;
+  border-bottom: 2px dashed grey;
+  padding: 50px 90px 40px 0;
+  justify-content: space-between;
+}
+.product {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  flex: 1.6;
+}
+.product-img-details {
+  display: flex;
+  gap: 10px;
+}
+.product-img-details img {
+  height: 130px;
+}
+.product-name {
+  width: 80%;
+}
+.product-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 0 35px;
+}
+.product-details span {
+  color: #ff993a;
+  font-weight: BOLD;
+}
+
+.quantity {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 15px;
+  height: 8.3em;
+  flex: 1;
+}
+.quantity-num {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.price {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 15px;
+  height: 8.3em;
+}
+.price-num {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.shipping-info {
+  border-bottom: 2px dashed grey;
+  padding: 30px 90px 30px 0;
+}
+.shipping {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+.shipping-status {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+.shipping-address {
+  display: flex;
+  gap: 30px;
+}
+.shipping-address-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.assistance {
+  border-bottom: 2px dashed grey;
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.footer {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Specific Style for the delivered page */
+
+.order-btn {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+.order-btn a {
+  color: white;
+  background: #ff993a;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+  text-decoration: none;
+}
+@media screen and (max-width: 1195px) {
+  .product-name {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 928px) {
+  .product {
+    align-items: center;
+  }
+  .product-img-details {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .product-img-details img {
+    height: 90px;
+  }
+  .product-info {
+    padding-right: 0;
+  }
+  .shipping-info {
+    padding-right: 0;
+  }
+  .product-name {
+    margin-bottom: 10px;
+  }
+  .shipping-address {
+    gap: 10px;
+  }
+  .letter-body {
+    width: 100%;
+    margin: auto;
+  }
+  .price-num {
+    font-size: 13px;
+  }
+  .quantity-num {
+    font-size: 13px;
+  }
+}
+
+    </style>
+</head>
+
+<body>
+    <main>
+        <nav class="navigation">
+            {% if site == "hope" %}
+             <img src="https://apimall.payarena.com/static/hope_logo.jpeg" alt="logo">
+            {% else %}
+             <img src="https://apimall.payarena.com/static/payarena_logo.jpeg" alt="logo">
+            {% endif %}
+
+            <img src="/images/payarena_logo-1 1.svg" alt="">
+            <a href="#">My Orders</a>
+        </nav>
+        <div class="delivery-container">
+            <div class="delivery-info">
+                <p>Your Order #{{ order_id }} has been delivered</p>
+            </div>
+        </div>
+        <div class="merchant-letter">
+            <p class="letter-header"> Dear Esteemed Customer,</p> <br> <br>
+            <p class="letter-body">Thank you for shopping with {{ site}}. <br> <br>  Click the button below to the indicate if your order with No #{{ order_id }} has been delivered by the seller: <span>{{ seller }}</span></p>
+
+            <div class="order-btn"><a href="#">Confirm Order Status</a></div>
+        </div>
+
+        <div class="product-info">
+            <div class="product">
+                <p>Product</p>
+                <div class="product-img-details">
+                    <img src="/images/tv.svg" alt="">
+                    <div class="product-details">
+                        <h3 class="product-name">{{ product_name }}</h3>
+                        <p>VENDOR: <span>{{ seller }}</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="quantity">
+                <p>Quantity</p>
+                <p class="quantity-num">{{ quantity }}</p>
+            </div>
+            <div class="price">
+                <p>Price</p>
+                <p class="price-num">NGN<span> {{ price }}</span> </p>
+            </div>
+        </div>
+        <div class="shipping-info">
+            <div class="shipping">
+                <p>Shipping:</p>
+                <p>Delivery by {{ shipper }}</p>
+            </div>
+            <div class="shipping-status">
+                <p>Shipping:</p>
+                <p>Delivered</p>
+            </div>
+            <div class="shipping-address">
+                <p>Shipping Address:</p>
+                <div class="shipping-address-info">
+                    <p>{{ address }}</p>
+                    <p>{{ phone }}</p>
+                    <p>{{ email }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="assistance">
+            <p>For further assistance with your order, please contact us at help@payrenamall.com</p>
+            <p>If you need further assistance, please contact us by email at <br> help@payarenamall.com or call 070XXXXXXXX or 080XXXXXXXX</p>
+        </div>
+        <div class="footer">
+            <p>Best Regards,</p>
+            <p>The {{ site }} Team.</p>
+        </div>
+
+    </main>
+
+</body>
+
+</html>
